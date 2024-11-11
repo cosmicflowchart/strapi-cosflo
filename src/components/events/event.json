@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_events_events",
+  "info": {
+    "displayName": "Event",
+    "icon": "alien",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Market",
+        "Con"
+      ]
+    },
+    "dates": {
+      "displayName": "Event Date",
+      "type": "component",
+      "repeatable": true,
+      "component": "events.event-date"
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}
