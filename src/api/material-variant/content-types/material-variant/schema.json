@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "material_variants",
+  "info": {
+    "singularName": "material-variant",
+    "pluralName": "material-variants",
+    "displayName": "Material Variant",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "materialGroup": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::material-group.material-group",
+      "inversedBy": "materialVariants"
+    },
+    "name": {
+      "type": "string"
+    },
+    "manufacturerNumber": {
+      "type": "string"
+    }
+  }
+}

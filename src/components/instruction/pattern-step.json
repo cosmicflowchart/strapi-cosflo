@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_instruction_pattern_steps",
+  "info": {
+    "displayName": "Pattern Step",
+    "icon": "check"
+  },
+  "options": {},
+  "attributes": {
+    "instructions": {
+      "type": "richtext"
+    },
+    "images": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

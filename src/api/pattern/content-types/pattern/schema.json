@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "patterns",
+  "info": {
+    "singularName": "pattern",
+    "pluralName": "patterns",
+    "displayName": "Pattern"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "steps": {
+      "type": "component",
+      "repeatable": true,
+      "component": "instruction.pattern-step"
+    },
+    "images": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

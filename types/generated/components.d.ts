@@ -28,6 +28,18 @@ export interface EventsEventDate extends Struct.ComponentSchema {
   };
 }
 
+export interface InstructionPatternStep extends Struct.ComponentSchema {
+  collectionName: 'components_instruction_pattern_steps';
+  info: {
+    displayName: 'Pattern Step';
+    icon: 'check';
+  };
+  attributes: {
+    images: Schema.Attribute.Media<'images' | 'files', true>;
+    instructions: Schema.Attribute.RichText;
+  };
+}
+
 export interface LinksSocialLinks extends Struct.ComponentSchema {
   collectionName: 'components_links_social_links';
   info: {
@@ -46,6 +58,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'events.event': EventsEvent;
       'events.event-date': EventsEventDate;
+      'instruction.pattern-step': InstructionPatternStep;
       'links.social-links': LinksSocialLinks;
     }
   }

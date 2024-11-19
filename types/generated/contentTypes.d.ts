@@ -403,6 +403,154 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiMaterialGroupMaterialGroup
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'material_groups';
+  info: {
+    description: '';
+    displayName: 'Material Group';
+    pluralName: 'material-groups';
+    singularName: 'material-group';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    brand: Schema.Attribute.String;
+    composition: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::material-group.material-group'
+    > &
+      Schema.Attribute.Private;
+    materialVariants: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::material-variant.material-variant'
+    >;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    type: Schema.Attribute.Enumeration<['Yarn', 'Other']>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    yardage: Schema.Attribute.String;
+  };
+}
+
+export interface ApiMaterialVariantMaterialVariant
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'material_variants';
+  info: {
+    description: '';
+    displayName: 'Material Variant';
+    pluralName: 'material-variants';
+    singularName: 'material-variant';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::material-variant.material-variant'
+    > &
+      Schema.Attribute.Private;
+    manufacturerNumber: Schema.Attribute.String;
+    materialGroup: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::material-group.material-group'
+    >;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPatternPattern extends Struct.CollectionTypeSchema {
+  collectionName: 'patterns';
+  info: {
+    displayName: 'Pattern';
+    pluralName: 'patterns';
+    singularName: 'pattern';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText;
+    images: Schema.Attribute.Media<'images' | 'files', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pattern.pattern'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'>;
+    steps: Schema.Attribute.Component<'instruction.pattern-step', true>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProjectProject extends Struct.CollectionTypeSchema {
+  collectionName: 'projects';
+  info: {
+    description: '';
+    displayName: 'Project';
+    pluralName: 'projects';
+    singularName: 'project';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText;
+    images: Schema.Attribute.Media<'images' | 'files' | 'audios', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::project.project'
+    > &
+      Schema.Attribute.Private;
+    primaryMaterials: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::material-variant.material-variant'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    secondaryMaterials: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::material-variant.material-variant'
+    >;
+    sku: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -913,6 +1061,10 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::material-group.material-group': ApiMaterialGroupMaterialGroup;
+      'api::material-variant.material-variant': ApiMaterialVariantMaterialVariant;
+      'api::pattern.pattern': ApiPatternPattern;
+      'api::project.project': ApiProjectProject;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

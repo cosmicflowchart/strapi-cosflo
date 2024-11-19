@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "material_groups",
+  "info": {
+    "singularName": "material-group",
+    "pluralName": "material-groups",
+    "displayName": "Material Group",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "brand": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Yarn",
+        "Other"
+      ]
+    },
+    "yardage": {
+      "type": "string"
+    },
+    "composition": {
+      "type": "string"
+    },
+    "materialVariants": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::material-variant.material-variant",
+      "mappedBy": "materialGroup"
+    }
+  }
+}
