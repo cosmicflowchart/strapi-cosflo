@@ -40,6 +40,18 @@ export interface InstructionPatternStep extends Struct.ComponentSchema {
   };
 }
 
+export interface LinksPageLinks extends Struct.ComponentSchema {
+  collectionName: 'components_links_page_links';
+  info: {
+    displayName: 'Page links';
+    icon: 'link';
+  };
+  attributes: {
+    path: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface LinksSocialLinks extends Struct.ComponentSchema {
   collectionName: 'components_links_social_links';
   info: {
@@ -59,6 +71,7 @@ declare module '@strapi/strapi' {
       'events.event': EventsEvent;
       'events.event-date': EventsEventDate;
       'instruction.pattern-step': InstructionPatternStep;
+      'links.page-links': LinksPageLinks;
       'links.social-links': LinksSocialLinks;
     }
   }

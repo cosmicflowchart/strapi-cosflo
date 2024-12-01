@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_links_page_links",
+  "info": {
+    "displayName": "Page links",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "path": {
+      "type": "string"
+    }
+  }
+}
