@@ -12,6 +12,9 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "aboutMeText": {
+      "type": "richtext"
+    },
     "socialLinks": {
       "displayName": "Social links",
       "type": "component",
@@ -35,7 +38,7 @@
         "audios"
       ]
     },
-    "aboutMeText": {
+    "aboutMeTextNew": {
       "type": "blocks"
     }
   }
