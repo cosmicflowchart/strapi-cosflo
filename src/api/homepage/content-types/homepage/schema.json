@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "aboutMeText": {
-      "type": "richtext"
-    },
     "socialLinks": {
       "displayName": "Social links",
       "type": "component",
