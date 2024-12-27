@@ -413,8 +413,7 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     aboutMePicture: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
-    aboutMeText: Schema.Attribute.RichText;
-    aboutMeTextNew: Schema.Attribute.Blocks;
+    aboutMeText: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
