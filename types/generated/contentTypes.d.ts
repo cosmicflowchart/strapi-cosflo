@@ -521,7 +521,6 @@ export interface ApiPatternPattern extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Blocks;
-    hookSize: Schema.Attribute.String;
     images: Schema.Attribute.Media<'images' | 'files', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -529,10 +528,6 @@ export interface ApiPatternPattern extends Struct.CollectionTypeSchema {
       'api::pattern.pattern'
     > &
       Schema.Attribute.Private;
-    otherMaterial: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::material-variant.material-variant'
-    >;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'>;
     steps: Schema.Attribute.Component<'instruction.pattern-step', true>;
@@ -540,10 +535,6 @@ export interface ApiPatternPattern extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    yarn: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::material-variant.material-variant'
-    >;
   };
 }
 
