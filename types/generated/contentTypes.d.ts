@@ -508,6 +508,7 @@ export interface ApiMaterialVariantMaterialVariant
 export interface ApiPatternPattern extends Struct.CollectionTypeSchema {
   collectionName: 'patterns';
   info: {
+    description: '';
     displayName: 'Pattern';
     pluralName: 'patterns';
     singularName: 'pattern';
@@ -519,7 +520,7 @@ export interface ApiPatternPattern extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.RichText;
+    description: Schema.Attribute.Blocks;
     images: Schema.Attribute.Media<'images' | 'files', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -581,7 +582,6 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.RichText;
     images: Schema.Attribute.Media<'images' | 'files' | 'audios', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<

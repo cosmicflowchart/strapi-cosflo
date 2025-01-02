@@ -31,12 +31,13 @@ export interface EventsEventDate extends Struct.ComponentSchema {
 export interface InstructionPatternStep extends Struct.ComponentSchema {
   collectionName: 'components_instruction_pattern_steps';
   info: {
+    description: '';
     displayName: 'Pattern Step';
     icon: 'check';
   };
   attributes: {
     images: Schema.Attribute.Media<'images' | 'files', true>;
-    instructions: Schema.Attribute.RichText;
+    instructions: Schema.Attribute.Blocks;
   };
 }
 

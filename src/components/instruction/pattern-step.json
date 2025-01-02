@@ -2,20 +2,22 @@
   "collectionName": "components_instruction_pattern_steps",
   "info": {
     "displayName": "Pattern Step",
-    "icon": "check"
+    "icon": "check",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "instructions": {
-      "type": "richtext"
-    },
     "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "instructions": {
+      "type": "blocks"
     }
   }
 }

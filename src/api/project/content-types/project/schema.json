@@ -36,9 +36,6 @@
       "relation": "oneToMany",
       "target": "api::material-variant.material-variant"
     },
-    "description": {
-      "type": "richtext"
-    },
     "sku": {
       "type": "string",
       "unique": true,
