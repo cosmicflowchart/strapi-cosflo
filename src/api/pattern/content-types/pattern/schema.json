@@ -49,6 +49,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::material-variant.material-variant"
+    },
+    "variants": {
+      "displayName": "variants",
+      "type": "component",
+      "repeatable": true,
+      "component": "instruction.variants"
     }
   }
 }

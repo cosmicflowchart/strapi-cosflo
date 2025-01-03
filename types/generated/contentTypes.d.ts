@@ -540,6 +540,7 @@ export interface ApiPatternPattern extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    variants: Schema.Attribute.Component<'instruction.variants', true>;
     yarn: Schema.Attribute.Relation<
       'oneToMany',
       'api::material-variant.material-variant'
