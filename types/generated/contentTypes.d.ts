@@ -534,6 +534,7 @@ export interface ApiPatternPattern extends Struct.CollectionTypeSchema {
       'api::material-variant.material-variant'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    shortDescription: Schema.Attribute.String;
     slug: Schema.Attribute.UID<'title'>;
     steps: Schema.Attribute.Component<'instruction.pattern-step', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
@@ -609,6 +610,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::material-variant.material-variant'
     >;
+    shortDescription: Schema.Attribute.String;
     sku: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;

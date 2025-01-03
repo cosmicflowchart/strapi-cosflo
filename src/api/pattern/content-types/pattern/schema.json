@@ -55,6 +55,9 @@
       "type": "component",
       "repeatable": true,
       "component": "instruction.variants"
+    },
+    "shortDescription": {
+      "type": "string"
     }
   }
 }
