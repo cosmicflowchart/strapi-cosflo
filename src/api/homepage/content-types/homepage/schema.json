@@ -12,12 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "socialLinks": {
-      "displayName": "Social links",
-      "type": "component",
-      "repeatable": true,
-      "component": "links.social-links"
-    },
     "events": {
       "displayName": "Event",
       "type": "component",
