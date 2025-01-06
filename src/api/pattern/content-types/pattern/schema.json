@@ -58,6 +58,12 @@
     },
     "shortDescription": {
       "type": "string"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project",
+      "mappedBy": "pattern"
     }
   }
 }

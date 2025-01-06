@@ -532,6 +532,7 @@ export interface ApiPatternPattern extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::material-variant.material-variant'
     >;
+    projects: Schema.Attribute.Relation<'oneToMany', 'api::project.project'>;
     publishedAt: Schema.Attribute.DateTime;
     shortDescription: Schema.Attribute.String;
     slug: Schema.Attribute.UID<'title'>;
@@ -600,6 +601,8 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
       'api::project.project'
     > &
       Schema.Attribute.Private;
+    pattern: Schema.Attribute.Relation<'manyToOne', 'api::pattern.pattern'>;
+    patternVariant: Schema.Attribute.String;
     primaryMaterials: Schema.Attribute.Relation<
       'oneToMany',
       'api::material-variant.material-variant'

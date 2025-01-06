@@ -50,6 +50,15 @@
     },
     "shortDescription": {
       "type": "string"
+    },
+    "pattern": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pattern.pattern",
+      "inversedBy": "projects"
+    },
+    "patternVariant": {
+      "type": "string"
     }
   }
 }
