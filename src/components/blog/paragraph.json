@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_blog_paragraphs",
+  "info": {
+    "displayName": "Paragraph",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "blocks"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

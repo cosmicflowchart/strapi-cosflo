@@ -1,5 +1,17 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BlogParagraph extends Struct.ComponentSchema {
+  collectionName: 'components_blog_paragraphs';
+  info: {
+    displayName: 'Paragraph';
+    icon: 'bulletList';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    text: Schema.Attribute.Blocks;
+  };
+}
+
 export interface EventsEvent extends Struct.ComponentSchema {
   collectionName: 'components_events_events';
   info: {
@@ -84,6 +96,7 @@ export interface LinksSocialLinks extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'blog.paragraph': BlogParagraph;
       'events.event': EventsEvent;
       'events.event-date': EventsEventDate;
       'instruction.pattern-step': InstructionPatternStep;
