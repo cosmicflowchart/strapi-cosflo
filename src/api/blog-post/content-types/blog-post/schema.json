@@ -15,7 +15,7 @@
     "title": {
       "type": "string"
     },
-    "description": {
+    "shortDescription": {
       "type": "string"
     },
     "tags": {
