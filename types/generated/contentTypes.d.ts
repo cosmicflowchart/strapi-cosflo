@@ -418,6 +418,14 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     events: Schema.Attribute.Component<'events.event', true>;
+    featuredPatterns: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pattern.pattern'
+    >;
+    featuredProjects: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::project.project'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

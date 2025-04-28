@@ -31,6 +31,16 @@
     },
     "aboutMeText": {
       "type": "blocks"
+    },
+    "featuredPatterns": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pattern.pattern"
+    },
+    "featuredProjects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project"
     }
   }
 }
