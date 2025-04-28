@@ -42,7 +42,8 @@
       "component": "blog.paragraph"
     },
     "slug": {
-      "type": "uid"
+      "type": "uid",
+      "targetField": "title"
     }
   }
 }
