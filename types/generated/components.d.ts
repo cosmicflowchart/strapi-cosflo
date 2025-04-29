@@ -12,6 +12,36 @@ export interface BlogParagraph extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentImage extends Struct.ComponentSchema {
+  collectionName: 'components_content_images';
+  info: {
+    description: '';
+    displayName: 'Image Block';
+    icon: 'picture';
+  };
+  attributes: {
+    caption: Schema.Attribute.String;
+    height: Schema.Attribute.Integer;
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    type: Schema.Attribute.Enumeration<['carousel', 'row']>;
+    width: Schema.Attribute.Integer;
+  };
+}
+
+export interface ContentTextBlock extends Struct.ComponentSchema {
+  collectionName: 'components_content_text_blocks';
+  info: {
+    displayName: 'Text Block';
+    icon: 'bulletList';
+  };
+  attributes: {
+    text: Schema.Attribute.Blocks;
+  };
+}
+
 export interface EventsEvent extends Struct.ComponentSchema {
   collectionName: 'components_events_events';
   info: {
@@ -97,6 +127,8 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'blog.paragraph': BlogParagraph;
+      'content.image': ContentImage;
+      'content.text-block': ContentTextBlock;
       'events.event': EventsEvent;
       'events.event-date': EventsEventDate;
       'instruction.pattern-step': InstructionPatternStep;
