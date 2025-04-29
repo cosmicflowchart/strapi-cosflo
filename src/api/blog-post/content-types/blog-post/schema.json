@@ -35,12 +35,6 @@
         "audios"
       ]
     },
-    "paragraph": {
-      "displayName": "Paragraph",
-      "type": "component",
-      "repeatable": true,
-      "component": "blog.paragraph"
-    },
     "slug": {
       "type": "uid",
       "targetField": "title"

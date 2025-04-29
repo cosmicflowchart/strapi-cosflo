@@ -394,7 +394,6 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
       'api::blog-post.blog-post'
     > &
       Schema.Attribute.Private;
-    paragraph: Schema.Attribute.Component<'blog.paragraph', true>;
     publishedAt: Schema.Attribute.DateTime;
     shortDescription: Schema.Attribute.String;
     slug: Schema.Attribute.UID<'title'>;

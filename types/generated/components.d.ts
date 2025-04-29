@@ -22,7 +22,7 @@ export interface ContentImage extends Struct.ComponentSchema {
   attributes: {
     caption: Schema.Attribute.String;
     height: Schema.Attribute.Integer;
-    image: Schema.Attribute.Media<
+    images: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
