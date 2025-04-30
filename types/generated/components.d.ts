@@ -34,7 +34,6 @@ export interface ContentImageCarousel extends Struct.ComponentSchema {
     icon: 'picture';
   };
   attributes: {
-    height: Schema.Attribute.Integer;
     images: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true

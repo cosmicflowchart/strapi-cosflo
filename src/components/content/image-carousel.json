@@ -20,9 +20,6 @@
     },
     "width": {
       "type": "integer"
-    },
-    "height": {
-      "type": "integer"
     }
   }
 }
