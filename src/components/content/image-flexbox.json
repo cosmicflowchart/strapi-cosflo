@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_content_image_flexboxes",
+  "info": {
+    "displayName": "Image Flexbox",
+    "icon": "picture",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "imageWidth": {
+      "type": "integer"
+    },
+    "imageHeight": {
+      "type": "integer"
+    }
+  }
+}

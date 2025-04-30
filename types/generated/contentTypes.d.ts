@@ -387,6 +387,7 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
         'content.image',
         'content.image-carousel',
         'content.image-grid',
+        'content.image-flexbox',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -571,6 +572,7 @@ export interface ApiPatternPattern extends Struct.CollectionTypeSchema {
         'content.image',
         'content.image-grid',
         'content.image-carousel',
+        'content.image-flexbox',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -653,6 +655,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
         'content.image',
         'content.image-grid',
         'content.image-carousel',
+        'content.image-flexbox',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

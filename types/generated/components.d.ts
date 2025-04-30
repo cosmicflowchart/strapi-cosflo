@@ -42,6 +42,23 @@ export interface ContentImageCarousel extends Struct.ComponentSchema {
   };
 }
 
+export interface ContentImageFlexbox extends Struct.ComponentSchema {
+  collectionName: 'components_content_image_flexboxes';
+  info: {
+    description: '';
+    displayName: 'Image Flexbox';
+    icon: 'picture';
+  };
+  attributes: {
+    imageHeight: Schema.Attribute.Integer;
+    images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    imageWidth: Schema.Attribute.Integer;
+  };
+}
+
 export interface ContentImageGrid extends Struct.ComponentSchema {
   collectionName: 'components_content_image_grids';
   info: {
@@ -158,6 +175,7 @@ declare module '@strapi/strapi' {
       'blog.paragraph': BlogParagraph;
       'content.image': ContentImage;
       'content.image-carousel': ContentImageCarousel;
+      'content.image-flexbox': ContentImageFlexbox;
       'content.image-grid': ContentImageGrid;
       'content.text-block': ContentTextBlock;
       'events.event': EventsEvent;

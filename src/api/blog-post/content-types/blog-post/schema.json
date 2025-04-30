@@ -45,7 +45,8 @@
         "content.text-block",
         "content.image",
         "content.image-carousel",
-        "content.image-grid"
+        "content.image-grid",
+        "content.image-flexbox"
       ]
     }
   }
