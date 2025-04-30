@@ -16,16 +16,6 @@
       "type": "string",
       "required": true
     },
-    "images": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "audios"
-      ]
-    },
     "primaryMaterials": {
       "type": "relation",
       "relation": "oneToMany",
@@ -44,9 +34,6 @@
     "slug": {
       "type": "uid",
       "targetField": "title"
-    },
-    "description": {
-      "type": "blocks"
     },
     "shortDescription": {
       "type": "string"
@@ -71,14 +58,15 @@
       ]
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }
