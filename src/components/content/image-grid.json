@@ -1,15 +1,15 @@
 {
-  "collectionName": "components_content_images",
+  "collectionName": "components_content_image_grids",
   "info": {
-    "displayName": "Image",
+    "displayName": "Image Grid",
     "icon": "picture",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "image": {
+    "images": {
       "type": "media",
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "allowedTypes": [
         "images",
@@ -18,10 +18,13 @@
         "audios"
       ]
     },
-    "width": {
+    "imageWidth": {
       "type": "integer"
     },
-    "height": {
+    "imageHeight": {
+      "type": "integer"
+    },
+    "columns": {
       "type": "integer"
     }
   }

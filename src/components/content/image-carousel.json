@@ -1,15 +1,15 @@
 {
-  "collectionName": "components_content_images",
+  "collectionName": "components_content_image_carousels",
   "info": {
-    "displayName": "Image",
+    "displayName": "Image Carousel",
     "icon": "picture",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "image": {
+    "images": {
       "type": "media",
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "allowedTypes": [
         "images",

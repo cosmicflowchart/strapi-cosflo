@@ -43,7 +43,9 @@
       "type": "dynamiczone",
       "components": [
         "content.text-block",
-        "content.image"
+        "content.image",
+        "content.image-carousel",
+        "content.image-grid"
       ]
     }
   }

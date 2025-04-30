@@ -382,7 +382,12 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
   };
   attributes: {
     content: Schema.Attribute.DynamicZone<
-      ['content.text-block', 'content.image']
+      [
+        'content.text-block',
+        'content.image',
+        'content.image-carousel',
+        'content.image-grid',
+      ]
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

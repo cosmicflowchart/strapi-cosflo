@@ -16,18 +16,48 @@ export interface ContentImage extends Struct.ComponentSchema {
   collectionName: 'components_content_images';
   info: {
     description: '';
-    displayName: 'Image Block';
+    displayName: 'Image';
     icon: 'picture';
   };
   attributes: {
-    caption: Schema.Attribute.String;
+    height: Schema.Attribute.Integer;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    width: Schema.Attribute.Integer;
+  };
+}
+
+export interface ContentImageCarousel extends Struct.ComponentSchema {
+  collectionName: 'components_content_image_carousels';
+  info: {
+    description: '';
+    displayName: 'Image Carousel';
+    icon: 'picture';
+  };
+  attributes: {
     height: Schema.Attribute.Integer;
     images: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
-    type: Schema.Attribute.Enumeration<['carousel', 'row']>;
     width: Schema.Attribute.Integer;
+  };
+}
+
+export interface ContentImageGrid extends Struct.ComponentSchema {
+  collectionName: 'components_content_image_grids';
+  info: {
+    description: '';
+    displayName: 'Image Grid';
+    icon: 'picture';
+  };
+  attributes: {
+    columns: Schema.Attribute.Integer;
+    imageHeight: Schema.Attribute.Integer;
+    images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    imageWidth: Schema.Attribute.Integer;
   };
 }
 
@@ -128,6 +158,8 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'blog.paragraph': BlogParagraph;
       'content.image': ContentImage;
+      'content.image-carousel': ContentImageCarousel;
+      'content.image-grid': ContentImageGrid;
       'content.text-block': ContentTextBlock;
       'events.event': EventsEvent;
       'events.event-date': EventsEventDate;
