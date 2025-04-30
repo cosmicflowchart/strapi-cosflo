@@ -67,7 +67,14 @@ export interface ContentImageGrid extends Struct.ComponentSchema {
     icon: 'picture';
   };
   attributes: {
-    columns: Schema.Attribute.Integer;
+    columns: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 4;
+          min: 1;
+        },
+        number
+      >;
     imageHeight: Schema.Attribute.Integer;
     images: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',

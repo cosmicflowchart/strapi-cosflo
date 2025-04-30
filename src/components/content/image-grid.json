@@ -25,7 +25,9 @@
       "type": "integer"
     },
     "columns": {
-      "type": "integer"
+      "type": "integer",
+      "max": 4,
+      "min": 1
     }
   }
 }
