@@ -64,6 +64,15 @@
       "relation": "oneToMany",
       "target": "api::project.project",
       "mappedBy": "pattern"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "content.text-block",
+        "content.image",
+        "content.image-grid",
+        "content.image-carousel"
+      ]
     }
   }
 }

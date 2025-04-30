@@ -59,6 +59,15 @@
     },
     "patternVariant": {
       "type": "string"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "content.text-block",
+        "content.image",
+        "content.image-grid",
+        "content.image-carousel"
+      ]
     }
   }
 }
