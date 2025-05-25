@@ -87,10 +87,14 @@ export interface ContentImageGrid extends Struct.ComponentSchema {
 export interface ContentTextBlock extends Struct.ComponentSchema {
   collectionName: 'components_content_text_blocks';
   info: {
+    description: '';
     displayName: 'Text Block';
     icon: 'bulletList';
   };
   attributes: {
+    alignment: Schema.Attribute.Enumeration<
+      ['left', 'center', 'right', 'justify', 'start', 'end']
+    >;
     text: Schema.Attribute.Blocks;
   };
 }

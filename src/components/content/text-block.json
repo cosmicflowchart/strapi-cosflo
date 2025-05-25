@@ -2,12 +2,24 @@
   "collectionName": "components_content_text_blocks",
   "info": {
     "displayName": "Text Block",
-    "icon": "bulletList"
+    "icon": "bulletList",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "text": {
       "type": "blocks"
+    },
+    "alignment": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "center",
+        "right",
+        "justify",
+        "start",
+        "end"
+      ]
     }
   }
 }
