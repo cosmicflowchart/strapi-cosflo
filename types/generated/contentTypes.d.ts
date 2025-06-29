@@ -624,10 +624,7 @@ export interface ApiPatternPattern extends Struct.CollectionTypeSchema {
       'api::pattern.pattern'
     > &
       Schema.Attribute.Private;
-    otherMaterial: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::material-variant.material-variant'
-    >;
+    material: Schema.Attribute.Component<'material.pattern-material', true>;
     projects: Schema.Attribute.Relation<'oneToMany', 'api::project.project'>;
     publishedAt: Schema.Attribute.DateTime;
     shortDescription: Schema.Attribute.String;
@@ -636,10 +633,6 @@ export interface ApiPatternPattern extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    yarn: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::material-variant.material-variant'
-    >;
   };
 }
 
@@ -705,14 +698,14 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     pattern: Schema.Attribute.Relation<'manyToOne', 'api::pattern.pattern'>;
     patternVariant: Schema.Attribute.String;
-    primaryMaterials: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::material-variant.material-variant'
+    primaryMaterial: Schema.Attribute.Component<
+      'material.project-material',
+      true
     >;
     publishedAt: Schema.Attribute.DateTime;
-    secondaryMaterials: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::material-variant.material-variant'
+    secondaryMaterial: Schema.Attribute.Component<
+      'material.project-material',
+      true
     >;
     shortDescription: Schema.Attribute.String;
     sku: Schema.Attribute.String &

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_material_project_materials",
+  "info": {
+    "displayName": "Project Material",
+    "icon": "bulletList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "materialVariant": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::material-variant.material-variant"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "amountGrams": {
+      "type": "decimal"
+    }
+  }
+}

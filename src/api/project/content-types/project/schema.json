@@ -16,16 +16,6 @@
       "type": "string",
       "required": true
     },
-    "primaryMaterials": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::material-variant.material-variant"
-    },
-    "secondaryMaterials": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::material-variant.material-variant"
-    },
     "sku": {
       "type": "string",
       "unique": true,
@@ -67,6 +57,17 @@
         "videos",
         "audios"
       ]
+    },
+    "primaryMaterial": {
+      "displayName": "Project Material",
+      "type": "component",
+      "repeatable": true,
+      "component": "material.project-material"
+    },
+    "secondaryMaterial": {
+      "type": "component",
+      "repeatable": true,
+      "component": "material.project-material"
     }
   }
 }

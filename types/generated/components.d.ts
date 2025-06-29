@@ -180,6 +180,39 @@ export interface LinksSocialLinks extends Struct.ComponentSchema {
   };
 }
 
+export interface MaterialPatternMaterial extends Struct.ComponentSchema {
+  collectionName: 'components_material_pattern_materials';
+  info: {
+    displayName: 'Pattern Material';
+    icon: 'bulletList';
+  };
+  attributes: {
+    amountGrams: Schema.Attribute.Decimal;
+    material_group: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::material-group.material-group'
+    >;
+    quantity: Schema.Attribute.Integer;
+  };
+}
+
+export interface MaterialProjectMaterial extends Struct.ComponentSchema {
+  collectionName: 'components_material_project_materials';
+  info: {
+    description: '';
+    displayName: 'Project Material';
+    icon: 'bulletList';
+  };
+  attributes: {
+    amountGrams: Schema.Attribute.Decimal;
+    materialVariant: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::material-variant.material-variant'
+    >;
+    quantity: Schema.Attribute.Integer;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -195,6 +228,8 @@ declare module '@strapi/strapi' {
       'instruction.variants': InstructionVariants;
       'links.page-links': LinksPageLinks;
       'links.social-links': LinksSocialLinks;
+      'material.pattern-material': MaterialPatternMaterial;
+      'material.project-material': MaterialProjectMaterial;
     }
   }
 }

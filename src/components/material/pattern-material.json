@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_material_pattern_materials",
+  "info": {
+    "displayName": "Pattern Material",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "material_group": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::material-group.material-group"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "amountGrams": {
+      "type": "decimal"
+    }
+  }
+}
