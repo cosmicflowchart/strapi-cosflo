@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_links_external_links",
+  "info": {
+    "displayName": "External links",
+    "icon": "code",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    }
+  }
+}

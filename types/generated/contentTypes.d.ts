@@ -786,6 +786,7 @@ export interface ApiProjectGroupProjectGroup
     > &
       Schema.Attribute.Private;
     pattern: Schema.Attribute.Relation<'oneToOne', 'api::pattern.pattern'>;
+    patternExternal: Schema.Attribute.Component<'links.external-link', false>;
     projects: Schema.Attribute.Relation<'oneToMany', 'api::project.project'>;
     publishedAt: Schema.Attribute.DateTime;
     tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;

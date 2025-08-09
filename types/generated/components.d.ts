@@ -1,17 +1,5 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface BlogParagraph extends Struct.ComponentSchema {
-  collectionName: 'components_blog_paragraphs';
-  info: {
-    displayName: 'Paragraph';
-    icon: 'bulletList';
-  };
-  attributes: {
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    text: Schema.Attribute.Blocks;
-  };
-}
-
 export interface ContentImage extends Struct.ComponentSchema {
   collectionName: 'components_content_images';
   info: {
@@ -127,31 +115,18 @@ export interface EventsEventDate extends Struct.ComponentSchema {
   };
 }
 
-export interface InstructionPatternStep extends Struct.ComponentSchema {
-  collectionName: 'components_instruction_pattern_steps';
+export interface LinksExternalLink extends Struct.ComponentSchema {
+  collectionName: 'components_links_external_links';
   info: {
     description: '';
-    displayName: 'Pattern Step';
-    icon: 'check';
+    displayName: 'External links';
+    icon: 'code';
   };
   attributes: {
-    images: Schema.Attribute.Media<'images' | 'files', true>;
-    instructions: Schema.Attribute.Blocks;
-  };
-}
-
-export interface InstructionVariants extends Struct.ComponentSchema {
-  collectionName: 'components_instruction_variants';
-  info: {
-    displayName: 'variants';
-  };
-  attributes: {
-    images: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
-    instructions: Schema.Attribute.Blocks;
+    author: Schema.Attribute.String;
     title: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+    website: Schema.Attribute.String;
   };
 }
 
@@ -216,7 +191,6 @@ export interface MaterialProjectMaterial extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'blog.paragraph': BlogParagraph;
       'content.image': ContentImage;
       'content.image-carousel': ContentImageCarousel;
       'content.image-flexbox': ContentImageFlexbox;
@@ -224,8 +198,7 @@ declare module '@strapi/strapi' {
       'content.text-block': ContentTextBlock;
       'events.event': EventsEvent;
       'events.event-date': EventsEventDate;
-      'instruction.pattern-step': InstructionPatternStep;
-      'instruction.variants': InstructionVariants;
+      'links.external-link': LinksExternalLink;
       'links.page-links': LinksPageLinks;
       'links.social-links': LinksSocialLinks;
       'material.pattern-material': MaterialPatternMaterial;

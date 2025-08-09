@@ -50,6 +50,12 @@
     },
     "titleSingular": {
       "type": "string"
+    },
+    "patternExternal": {
+      "displayName": "External Link",
+      "type": "component",
+      "repeatable": false,
+      "component": "links.external-link"
     }
   }
 }
