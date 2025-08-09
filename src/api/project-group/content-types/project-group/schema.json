@@ -19,15 +19,6 @@
     "description": {
       "type": "blocks"
     },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
-    },
     "projects": {
       "type": "relation",
       "relation": "oneToMany",
@@ -39,6 +30,11 @@
       "relation": "oneToOne",
       "target": "api::pattern.pattern",
       "inversedBy": "project_group"
+    },
+    "defaultProject": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::project.project"
     }
   }
 }
