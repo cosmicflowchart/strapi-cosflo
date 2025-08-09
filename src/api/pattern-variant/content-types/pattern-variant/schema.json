@@ -4,7 +4,8 @@
   "info": {
     "singularName": "pattern-variant",
     "pluralName": "pattern-variants",
-    "displayName": "Pattern Variant"
+    "displayName": "Pattern Variant",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,12 +23,13 @@
       "inversedBy": "pattern_variants"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "content": {
       "type": "dynamiczone",
@@ -44,6 +46,12 @@
       "relation": "oneToOne",
       "target": "api::project.project",
       "mappedBy": "pattern_variant"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "inversedBy": "pattern_variants"
     }
   }
 }

@@ -511,6 +511,7 @@ export interface ApiMaterialGroupMaterialGroup
     >;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
     type: Schema.Attribute.Enumeration<['Yarn', 'Other']>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -585,6 +586,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     shortDescription: Schema.Attribute.String;
     slug: Schema.Attribute.UID<'title'>;
+    tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -596,6 +598,7 @@ export interface ApiPatternVariantPatternVariant
   extends Struct.CollectionTypeSchema {
   collectionName: 'pattern_variants';
   info: {
+    description: '';
     displayName: 'Pattern Variant';
     pluralName: 'pattern-variants';
     singularName: 'pattern-variant';
@@ -626,6 +629,7 @@ export interface ApiPatternVariantPatternVariant
     pattern: Schema.Attribute.Relation<'manyToOne', 'api::pattern.pattern'>;
     project: Schema.Attribute.Relation<'oneToOne', 'api::project.project'>;
     publishedAt: Schema.Attribute.DateTime;
+    tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -678,6 +682,7 @@ export interface ApiPatternPattern extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     shortDescription: Schema.Attribute.String;
     slug: Schema.Attribute.UID<'title'>;
+    tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -714,6 +719,41 @@ export interface ApiPrivacyPolicyPrivacyPolicy extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiProjectCategoryProjectCategory
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'project_categories';
+  info: {
+    description: '';
+    displayName: 'Project Category';
+    pluralName: 'project-categories';
+    singularName: 'project-category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::project-category.project-category'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    project_groups: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::project-group.project-group'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProjectGroupProjectGroup
   extends Struct.CollectionTypeSchema {
   collectionName: 'project_groups';
@@ -727,6 +767,10 @@ export interface ApiProjectGroupProjectGroup
     draftAndPublish: true;
   };
   attributes: {
+    category: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::project-category.project-category'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -744,6 +788,7 @@ export interface ApiProjectGroupProjectGroup
     pattern: Schema.Attribute.Relation<'oneToOne', 'api::pattern.pattern'>;
     projects: Schema.Attribute.Relation<'oneToMany', 'api::project.project'>;
     publishedAt: Schema.Attribute.DateTime;
+    tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -805,6 +850,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     slug: Schema.Attribute.UID<'title'>;
+    tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -834,7 +880,26 @@ export interface ApiTagTag extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::tag.tag'> &
       Schema.Attribute.Private;
+    material_groups: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::material-group.material-group'
+    >;
     Name: Schema.Attribute.String;
+    pages: Schema.Attribute.Relation<'manyToMany', 'api::page.page'>;
+    pattern_variants: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::pattern-variant.pattern-variant'
+    >;
+    patterns: Schema.Attribute.Relation<'manyToMany', 'api::pattern.pattern'>;
+    project_categories: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::project-category.project-category'
+    >;
+    project_groups: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::project-group.project-group'
+    >;
+    projects: Schema.Attribute.Relation<'manyToMany', 'api::project.project'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1360,6 +1425,7 @@ declare module '@strapi/strapi' {
       'api::pattern-variant.pattern-variant': ApiPatternVariantPatternVariant;
       'api::pattern.pattern': ApiPatternPattern;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
+      'api::project-category.project-category': ApiProjectCategoryProjectCategory;
       'api::project-group.project-group': ApiProjectGroupProjectGroup;
       'api::project.project': ApiProjectProject;
       'api::tag.tag': ApiTagTag;

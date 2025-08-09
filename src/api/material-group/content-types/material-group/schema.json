@@ -36,6 +36,12 @@
       "relation": "oneToMany",
       "target": "api::material-variant.material-variant",
       "mappedBy": "materialGroup"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "inversedBy": "material_groups"
     }
   }
 }

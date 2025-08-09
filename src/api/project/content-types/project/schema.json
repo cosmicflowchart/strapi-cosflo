@@ -80,6 +80,12 @@
     },
     "variant": {
       "type": "string"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "inversedBy": "projects"
     }
   }
 }

@@ -19,6 +19,48 @@
       "relation": "manyToMany",
       "target": "api::blog-post.blog-post",
       "mappedBy": "tags"
+    },
+    "project_groups": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project-group.project-group",
+      "mappedBy": "tags"
+    },
+    "material_groups": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::material-group.material-group",
+      "mappedBy": "tags"
+    },
+    "pages": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::page.page",
+      "mappedBy": "tags"
+    },
+    "patterns": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::pattern.pattern",
+      "mappedBy": "tags"
+    },
+    "pattern_variants": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::pattern-variant.pattern-variant",
+      "mappedBy": "tags"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project.project",
+      "mappedBy": "tags"
+    },
+    "project_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::project-category.project-category",
+      "mappedBy": "tags"
     }
   }
 }

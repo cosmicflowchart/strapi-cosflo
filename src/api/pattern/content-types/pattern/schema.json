@@ -70,6 +70,12 @@
       "relation": "oneToMany",
       "target": "api::project.project",
       "mappedBy": "pattern"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "inversedBy": "patterns"
     }
   }
 }
