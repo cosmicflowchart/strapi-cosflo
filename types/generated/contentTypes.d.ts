@@ -592,6 +592,47 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPatternVariantPatternVariant
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'pattern_variants';
+  info: {
+    displayName: 'Pattern Variant';
+    pluralName: 'pattern-variants';
+    singularName: 'pattern-variant';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.DynamicZone<
+      [
+        'content.text-block',
+        'content.image',
+        'content.image-grid',
+        'content.image-flexbox',
+        'content.image-carousel',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pattern-variant.pattern-variant'
+    > &
+      Schema.Attribute.Private;
+    pattern: Schema.Attribute.Relation<'manyToOne', 'api::pattern.pattern'>;
+    project: Schema.Attribute.Relation<'oneToOne', 'api::project.project'>;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPatternPattern extends Struct.CollectionTypeSchema {
   collectionName: 'patterns';
   info: {
@@ -625,6 +666,14 @@ export interface ApiPatternPattern extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     material: Schema.Attribute.Component<'material.pattern-material', true>;
+    pattern_variants: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pattern-variant.pattern-variant'
+    >;
+    project_group: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::project-group.project-group'
+    >;
     projects: Schema.Attribute.Relation<'oneToMany', 'api::project.project'>;
     publishedAt: Schema.Attribute.DateTime;
     shortDescription: Schema.Attribute.String;
@@ -665,6 +714,40 @@ export interface ApiPrivacyPolicyPrivacyPolicy extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiProjectGroupProjectGroup
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'project_groups';
+  info: {
+    description: '';
+    displayName: 'Project Group';
+    pluralName: 'project-groups';
+    singularName: 'project-group';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Blocks;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::project-group.project-group'
+    > &
+      Schema.Attribute.Private;
+    pattern: Schema.Attribute.Relation<'oneToOne', 'api::pattern.pattern'>;
+    projects: Schema.Attribute.Relation<'oneToMany', 'api::project.project'>;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProjectProject extends Struct.CollectionTypeSchema {
   collectionName: 'projects';
   info: {
@@ -697,10 +780,17 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     pattern: Schema.Attribute.Relation<'manyToOne', 'api::pattern.pattern'>;
-    patternVariant: Schema.Attribute.String;
+    pattern_variant: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::pattern-variant.pattern-variant'
+    >;
     primaryMaterial: Schema.Attribute.Component<
       'material.project-material',
       true
+    >;
+    project_group: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::project-group.project-group'
     >;
     publishedAt: Schema.Attribute.DateTime;
     secondaryMaterial: Schema.Attribute.Component<
@@ -1263,8 +1353,10 @@ declare module '@strapi/strapi' {
       'api::material-group.material-group': ApiMaterialGroupMaterialGroup;
       'api::material-variant.material-variant': ApiMaterialVariantMaterialVariant;
       'api::page.page': ApiPagePage;
+      'api::pattern-variant.pattern-variant': ApiPatternVariantPatternVariant;
       'api::pattern.pattern': ApiPatternPattern;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
+      'api::project-group.project-group': ApiProjectGroupProjectGroup;
       'api::project.project': ApiProjectProject;
       'api::tag.tag': ApiTagTag;
       'plugin::content-releases.release': PluginContentReleasesRelease;

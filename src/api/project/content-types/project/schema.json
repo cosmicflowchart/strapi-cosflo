@@ -28,15 +28,6 @@
     "shortDescription": {
       "type": "string"
     },
-    "pattern": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::pattern.pattern",
-      "inversedBy": "projects"
-    },
-    "patternVariant": {
-      "type": "string"
-    },
     "content": {
       "type": "dynamiczone",
       "components": [
@@ -68,6 +59,24 @@
       "type": "component",
       "repeatable": true,
       "component": "material.project-material"
+    },
+    "project_group": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::project-group.project-group",
+      "inversedBy": "projects"
+    },
+    "pattern": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pattern.pattern",
+      "inversedBy": "projects"
+    },
+    "pattern_variant": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pattern-variant.pattern-variant",
+      "inversedBy": "project"
     }
   }
 }

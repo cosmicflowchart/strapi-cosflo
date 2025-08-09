@@ -26,12 +26,6 @@
     "shortDescription": {
       "type": "string"
     },
-    "projects": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::project.project",
-      "mappedBy": "pattern"
-    },
     "content": {
       "type": "dynamiczone",
       "components": [
@@ -58,6 +52,24 @@
       "type": "component",
       "repeatable": true,
       "component": "material.pattern-material"
+    },
+    "pattern_variants": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pattern-variant.pattern-variant",
+      "mappedBy": "pattern"
+    },
+    "project_group": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::project-group.project-group",
+      "mappedBy": "pattern"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project",
+      "mappedBy": "pattern"
     }
   }
 }
