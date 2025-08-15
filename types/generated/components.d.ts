@@ -155,6 +155,16 @@ export interface LinksSocialLinks extends Struct.ComponentSchema {
   };
 }
 
+export interface MaterialOtherMaterial extends Struct.ComponentSchema {
+  collectionName: 'components_material_other_materials';
+  info: {
+    displayName: 'Other Material';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+  };
+}
+
 export interface MaterialPatternMaterial extends Struct.ComponentSchema {
   collectionName: 'components_material_pattern_materials';
   info: {
@@ -201,6 +211,7 @@ declare module '@strapi/strapi' {
       'links.external-link': LinksExternalLink;
       'links.page-links': LinksPageLinks;
       'links.social-links': LinksSocialLinks;
+      'material.other-material': MaterialOtherMaterial;
       'material.pattern-material': MaterialPatternMaterial;
       'material.project-material': MaterialProjectMaterial;
     }

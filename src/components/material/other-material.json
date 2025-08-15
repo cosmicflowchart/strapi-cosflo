@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_material_other_materials",
+  "info": {
+    "displayName": "Other Material"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "string"
+    }
+  }
+}
