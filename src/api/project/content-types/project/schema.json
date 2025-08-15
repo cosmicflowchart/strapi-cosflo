@@ -86,17 +86,6 @@
       "relation": "manyToMany",
       "target": "api::tag.tag",
       "inversedBy": "projects"
-    },
-    "otherPrimaryMaterial": {
-      "displayName": "Other Material",
-      "type": "component",
-      "repeatable": true,
-      "component": "material.other-material"
-    },
-    "otherSecondaryMaterial": {
-      "type": "component",
-      "repeatable": true,
-      "component": "material.other-material"
     }
   }
 }

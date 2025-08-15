@@ -76,11 +76,6 @@
       "relation": "manyToMany",
       "target": "api::tag.tag",
       "inversedBy": "patterns"
-    },
-    "otherMaterial": {
-      "type": "component",
-      "repeatable": true,
-      "component": "material.other-material"
     }
   }
 }

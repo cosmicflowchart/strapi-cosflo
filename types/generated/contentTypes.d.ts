@@ -670,7 +670,6 @@ export interface ApiPatternPattern extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     material: Schema.Attribute.Component<'material.pattern-material', true>;
-    otherMaterial: Schema.Attribute.Component<'material.other-material', true>;
     pattern_variants: Schema.Attribute.Relation<
       'oneToMany',
       'api::pattern-variant.pattern-variant'
@@ -830,14 +829,6 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
       'api::project.project'
     > &
       Schema.Attribute.Private;
-    otherPrimaryMaterial: Schema.Attribute.Component<
-      'material.other-material',
-      true
-    >;
-    otherSecondaryMaterial: Schema.Attribute.Component<
-      'material.other-material',
-      true
-    >;
     pattern: Schema.Attribute.Relation<'manyToOne', 'api::pattern.pattern'>;
     pattern_variant: Schema.Attribute.Relation<
       'oneToOne',
